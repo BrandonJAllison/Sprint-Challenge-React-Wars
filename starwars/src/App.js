@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import StarWarsList from './components/StarWarsList.js'
-import Pages from './components/Pages.js'
+
 
 
 import './App.css';
+
+const btnStyle = {
+  margin: '20px',
+  bacgkround: 'white',
+  borderRadius: '12px',
+  height: '50px',
+  width: '100px'
+}
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      next: null,
+      prev: null,
     };
   }
 
@@ -26,19 +36,35 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        console.log('data', data);
-        this.setState({ starwarsChars: data.results });
+        console.log(data);
+        this.setState({ 
+          
+          starwarsChars: data.results,
+          next: data.next,
+          previous: data.previous });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  loadNext = () => {
+    this.getCharacters(this.state.next);
+  }
+
+  loadPrev = () => {
+    this.getCharacters(this.state.previous);
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <Pages getCharacters = {this.getCharacter} />
+        <div>
+          {this.state.previous === null ? null : (<button style={btnStyle} onClick={this.loadPrev}>Previous</button>)}
+          {this.state.next === null ? null : (<button style={btnStyle} onClick={this.loadNext}>Next</button>)}
+
+        </div>
           <div className='character-list'>
             <StarWarsList starwarsChars={this.state.starwarsChars} />
           </div>

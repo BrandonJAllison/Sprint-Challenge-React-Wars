@@ -13,8 +13,8 @@ const Pages = (props) => {
     return(
 <div>
 
-<button onClick={() => props.getCharacter(props.data.previous)} style ={btnStyle}>Previous</button>
-<button onClick={() => props.getCharacter(props.data.next)} style ={btnStyle}>Next</button>
+
+<button onClick={this.state.loadNextPage} style ={btnStyle}>Next</button>
 
 </div>
 
