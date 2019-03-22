@@ -8,12 +8,13 @@ const btnStyle = {
 }
 
 
-const Pages = () => {
+const Pages = (props) => {
+    console.log('page', props)
     return(
 <div>
 
-<button style ={btnStyle}>Previous</button>
-<button style ={btnStyle}>Next</button>
+<button onClick={() => props.getCharacter(props.data.previous)} style ={btnStyle}>Previous</button>
+<button onClick={() => props.getCharacter(props.data.next)} style ={btnStyle}>Next</button>
 
 </div>
 

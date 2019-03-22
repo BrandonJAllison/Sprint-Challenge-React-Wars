@@ -15,7 +15,7 @@ boxShadow: '-1px 27px 38px -15px rgba(0,0,0,0.75)',
 const StarWars = (props) => {
     console.log(props);
     return(
-    <div style = {cardStyle} >
+    <div  style = {cardStyle} >
 
         <h1>{props.char.name}</h1>
         <h4>Gender:</h4>
