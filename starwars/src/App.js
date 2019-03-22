@@ -10,7 +10,9 @@ const btnStyle = {
   bacgkround: 'white',
   borderRadius: '12px',
   height: '50px',
-  width: '100px'
+  width: '100px',
+  background: 'black',
+  color: '#ffd700 '
 }
 
 class App extends Component {
@@ -38,7 +40,7 @@ class App extends Component {
       .then(data => {
         console.log(data);
         this.setState({ 
-          
+
           starwarsChars: data.results,
           next: data.next,
           previous: data.previous });
