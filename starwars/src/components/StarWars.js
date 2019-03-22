@@ -1,9 +1,21 @@
 import React from 'react';
 
+const cardStyle = {
+border: '2px solid black',
+backgroundColor: 'white', 
+width: '400px',
+height: 'auto',
+margin: '15px',
+borderRadius: '10px',
+fontFamily: 'Roboto Mono',
+boxShadow: '-1px 27px 38px -15px rgba(0,0,0,0.75)',
+
+}
+
 const StarWars = (props) => {
     console.log(props);
     return(
-    <div className ="characterCard">
+    <div style = {cardStyle} >
 
         <h1>{props.char.name}</h1>
         <h4>Gender:</h4>
