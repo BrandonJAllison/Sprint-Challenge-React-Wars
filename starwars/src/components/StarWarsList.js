@@ -9,7 +9,8 @@ const StarWarsList = (props) => {
     return (
         <div className='container'>
             {props.starwarsChars.map((char) => {
-                return <StarWars char={char} />
+                console.log(char)
+                return <StarWars char={char} key = {props.url} />
             })
             }
         </div>
